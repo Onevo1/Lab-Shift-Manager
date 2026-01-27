@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Shift Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Lab Shift Manager</h1>
+            <p class="subtitle">Organize and manage your lab team shifts</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Team Members Section -->
+            <section class="card">
+                <h2>Team Members</h2>
+                <div class="input-group">
+                    <input type="text" id="memberName" placeholder="Enter team member name" />
+                    <button onclick="addMember()" class="btn-primary">Add Member</button>
+                </div>
+                <ul id="membersList" class="members-list"></ul>
+            </section>
+
+            <!-- Add Shift Section -->
+            <section class="card">
+                <h2>Add New Shift</h2>
+                <div class="form-group">
+                    <label for="shiftMember">Team Member:</label>
+                    <select id="shiftMember" class="form-control">
+                        <option value="">Select a member</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="shiftDate">Date:</label>
+                    <input type="date" id="shiftDate" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="shiftStartTime">Start Time:</label>
+                    <input type="time" id="shiftStartTime" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="shiftEndTime">End Time:</label>
+                    <input type="time" id="shiftEndTime" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="shiftNotes">Notes (optional):</label>
+                    <input type="text" id="shiftNotes" class="form-control" placeholder="e.g., Evening shift, Equipment maintenance" />
+                </div>
+                <button onclick="addShift()" class="btn-primary btn-block">Add Shift</button>
+            </section>
+
+            <!-- Schedule View -->
+            <section class="card">
+                <h2>Schedule</h2>
+                <div class="filter-group">
+                    <label for="filterDate">Filter by Date:</label>
+                    <input type="date" id="filterDate" class="form-control" onchange="filterSchedule()" />
+                    <button onclick="clearFilter()" class="btn-secondary">Show All</button>
+                </div>
+                <div id="scheduleList" class="schedule-list"></div>
+            </section>
+
+            <!-- Export/Import Section -->
+            <section class="card">
+                <h2>Data Management</h2>
+                <div class="button-group">
+                    <button onclick="exportData()" class="btn-secondary">Export Data</button>
+                    <button onclick="document.getElementById('importFile').click()" class="btn-secondary">Import Data</button>
+                    <input type="file" id="importFile" style="display: none" accept=".json" onchange="importData(event)" />
+                    <button onclick="clearAllData()" class="btn-danger">Clear All Data</button>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Lab Shift Manager - All data is stored locally in your browser</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

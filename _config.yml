@@ -1,0 +1,17 @@
+# GitHub Pages Jekyll configuration
+# This file tells GitHub Pages how to build the site
+
+# Theme settings
+theme: null
+
+# Include all files (including those starting with _)
+include:
+  - index.html
+  - styles.css
+  - script.js
+
+# Exclude unnecessary files from the built site
+exclude:
+  - README.md
+  - .git
+  - .gitignore
